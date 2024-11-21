@@ -14,9 +14,9 @@ class StatsOverview extends BaseWidget
 
     protected function getStats(): array
     {
-        $startDate = ! is_null($this->filters['startDate'] ?? null) ?
-            Carbon::parse($this->filters['startDate']) :
-            null;
+        $startDate = !is_null($this->filters['startDate'] ?? null)
+            ? Carbon::parse($this->filters['startDate'])
+            : Carbon::createFromFormat('Y-m-d', '2000-01-01'); // Default far-past date
 
         $endDate = ! is_null($this->filters['endDate'] ?? null) ?
             Carbon::parse($this->filters['endDate']) :
