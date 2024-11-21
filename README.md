@@ -23,6 +23,7 @@ Modul baru
  - Buat file Dashboard.php
  - Copy basicnya di https://github.com/filamentphp/demo/blob/main/app/Filament/Pages/Dashboard.php
  - Lalu hapus object pages di app/provider/filament/adminPanelProvider
+
        ->pages([
                 Pages\Dashboard::class,
             ])
@@ -30,13 +31,15 @@ Modul baru
         jadi seperti ini
 
         ->pages([])
+        
  - Tambahkan start dan dan end date menggunakan carbon sebagai handlernya
-  $startDate = ! is_null($this->filters['startDate'] ?? null) ?
+
+        $startDate = ! is_null($this->filters['startDate'] ?? null) ?
             Carbon::parse($this->filters['startDate']) :
             null;
 
         $endDate = ! is_null($this->filters['endDate'] ?? null) ?
             Carbon::parse($this->filters['endDate']) :
             now();
-            
+
  - lalu tambahkan use InteractsWithPageFilters di paling atas
